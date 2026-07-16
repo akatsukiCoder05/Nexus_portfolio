@@ -7,7 +7,7 @@ const milestones = [
   {
     year: "Earlier",
     icon: Code2,
-    title: "Founded as Hack2Skill",
+    title: "Founded as hackallite",
     description: "Started with a core vision to build practical technical capabilities in students, organizing coding bootcamps and local programming sessions."
   },
   {
@@ -93,8 +93,7 @@ export default function Timeline() {
               letterSpacing: "-0.03em",
             }}
           >
-            Community<br />
-            <span style={{ color: "#00e5cc" }}>Milestones</span>
+            Where I&apos;ve <span style={{ fontFamily: "'Instrument Serif', serif", fontStyle: "italic", fontWeight: "normal" }}>worked</span>
           </h2>
         </div>
 

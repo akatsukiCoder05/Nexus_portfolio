@@ -34,7 +34,7 @@ export const teamMembers: TeamMember[] = [
     ],
     achievements: ["Founded Nexus Community", "Helped 1500+ students secure placements", "Keynote Speaker"],
     social: {
-      linkedin: "https://linkedin.com/in/aman-tiwari",
+      linkedin: "https://www.linkedin.com/in/aman-tiwari-dev",
       email: "aman@nexus.com"
     }
   },
@@ -44,7 +44,7 @@ export const teamMembers: TeamMember[] = [
     name: "Jaya Pandey",
     role: "Community Lead",
     branch: "Computer Science & Engineering",
-    year: "3rd Year",
+    year: "4th Year",
     bio: "Leading community initiatives at Nexus. Passionate about driving innovation, organizing placement workshops, and coordinating student development drives.",
     photo: "/images/team/jaya.jpg",
     skills: ["Public Relations", "Team Management", "Leadership", "Event Planning"],
@@ -53,7 +53,7 @@ export const teamMembers: TeamMember[] = [
     ],
     achievements: ["Community Lead", "Led 15+ student development workshops"],
     social: {
-      linkedin: "https://linkedin.com/in/jaya-pandey",
+      linkedin: "https://www.linkedin.com/in/jaya-pandey-439204311",
       instagram: "https://instagram.com"
     }
   },
@@ -62,8 +62,8 @@ export const teamMembers: TeamMember[] = [
     slug: "ashray-dwivedi",
     name: "Ashray Dwivedi",
     role: "Community Co-Lead",
-    branch: "Computer Science & Engineering",
-    year: "3rd Year",
+    branch: "Cyber Security",
+    year: "4th Year",
     bio: "Supporting community vision and co-leading Nexus operations, workshop planning, and outreach strategies to prepare students for core technical roles.",
     photo: "/images/team/ashray.jpg",
     skills: ["Strategic Growth", "Communication", "Technical Planning", "Public Relations"],
@@ -72,7 +72,7 @@ export const teamMembers: TeamMember[] = [
     ],
     achievements: ["Community Co-Lead", "Mentored 100+ juniors in aptitude prep"],
     social: {
-      linkedin: "https://linkedin.com/in/ashray-dwivedi"
+      linkedin: "https://www.linkedin.com/in/ashray-dwivedi-b89295211"
     }
   },
   {
@@ -80,7 +80,7 @@ export const teamMembers: TeamMember[] = [
     slug: "subid-kant-nigam",
     name: "Subid Kant Nigam",
     role: "Technical Lead",
-    branch: "Computer Science",
+    branch: "Cyber Security",
     year: "4th Year",
     bio: "Passionate coder leading technical development and setting challenging programming and DSA benchmarks for the community.",
     photo: "/images/team/subid.jpg",
@@ -90,7 +90,7 @@ export const teamMembers: TeamMember[] = [
     ],
     achievements: ["Technical Lead at Nexus", "Solved 500+ DSA Problems", "Hackathon Finalist"],
     social: {
-      linkedin: "https://linkedin.com/in/subid-kant-nigam"
+      linkedin: "https://www.linkedin.com/in/subid-kant-nigam-3339142ab"
     }
   },
   {
@@ -99,7 +99,7 @@ export const teamMembers: TeamMember[] = [
     name: "Etesh Singh",
     role: "Technical Co-Lead",
     branch: "Computer Science",
-    year: "3rd Year",
+    year: "4th Year",
     bio: "Driven developer and technical mentor focused on co-leading web development workshops and backend architecture.",
     photo: "/images/team/etesh.jpg",
     skills: ["Backend Development", "Node.js", "Express", "Database Management", "API Design"],
@@ -108,7 +108,7 @@ export const teamMembers: TeamMember[] = [
     ],
     achievements: ["Technical Co-Lead", "Winner of College Coding Challenge"],
     social: {
-      linkedin: "https://linkedin.com/in/etesh-singh"
+      linkedin: "https://www.linkedin.com/in/etesh-singh-132675294"
     }
   },
   {
@@ -116,8 +116,8 @@ export const teamMembers: TeamMember[] = [
     slug: "kirti-srivastava",
     name: "Kirti Srivastava",
     role: "Content Lead",
-    branch: "Information Technology",
-    year: "3rd Year",
+    branch: "Computer Science & Engineering",
+    year: "4th Year",
     bio: "Creative writer managing content generation, placement resources documentation, and instructional materials for workshops.",
     photo: "/images/team/kirti.jpg",
     skills: ["Content Writing", "Technical Documentation", "Copywriting", "Resource Curation"],
@@ -126,7 +126,7 @@ export const teamMembers: TeamMember[] = [
     ],
     achievements: ["Content Lead", "Published 20+ Placement Preparation Guides"],
     social: {
-      linkedin: "https://linkedin.com/in/kirti-srivastava"
+      linkedin: "https://www.linkedin.com/in/kirti-srivastava-2270a9331"
     }
   },
   {
@@ -144,7 +144,7 @@ export const teamMembers: TeamMember[] = [
     ],
     achievements: ["Event & PR Lead", "Successfully managed 10+ large-scale events"],
     social: {
-      linkedin: "https://linkedin.com/in/vanshika-saxena"
+      linkedin: "https://www.linkedin.com/in/vanshika-saxena-039518329"
     }
   },
   {
@@ -152,8 +152,8 @@ export const teamMembers: TeamMember[] = [
     slug: "mansi-ranjan",
     name: "Mansi Ranjan",
     role: "Social Media Lead",
-    branch: "Electronics & CS",
-    year: "3rd Year",
+    branch: "Computer Science & Engineering",
+    year: "4th Year",
     bio: "Digital strategist shaping Nexus's online presence, ensuring placement tips and coding event announcements reach all students.",
     photo: "/images/team/mansi.jpg",
     skills: ["Social Media Marketing", "Content Strategy", "Graphic Design", "Brand Positioning"],
@@ -162,7 +162,7 @@ export const teamMembers: TeamMember[] = [
     ],
     achievements: ["Social Media Lead", "Increased platform engagement by 150%"],
     social: {
-      linkedin: "https://linkedin.com/in/mansi-ranjan"
+      linkedin: "https://www.linkedin.com/in/mansi-ranjan-6873113aa"
     }
   },
   {
@@ -170,8 +170,8 @@ export const teamMembers: TeamMember[] = [
     slug: "sumaiya-khan",
     name: "Sumaiya Khan",
     role: "Social Media Co-Lead",
-    branch: "Information Technology",
-    year: "2nd Year",
+    branch: "Computer Science & Engineering",
+    year: "3rd Year",
     bio: "Content creator co-managing visual branding and design posts, keeping the community interactive and updated on placement drives.",
     photo: "/images/team/sumaiya.jpg",
     skills: ["Content Creation", "Graphic Designing", "Video Editing", "Community Engagement"],
@@ -180,7 +180,7 @@ export const teamMembers: TeamMember[] = [
     ],
     achievements: ["Social Media Co-Lead", "Designed promotional campaigns for HackNexus 2025"],
     social: {
-      linkedin: "https://linkedin.com/in/sumaiya-khan"
+      linkedin: "https://www.linkedin.com/in/sumaiya-khan-a9b017328"
     }
   },
   {
@@ -198,7 +198,7 @@ export const teamMembers: TeamMember[] = [
     ],
     achievements: ["Technical Coordinator", "Organized 5+ college coding sprints"],
     social: {
-      linkedin: "https://linkedin.com/in/lakshya-verma"
+      linkedin: "https://www.linkedin.com/in/lakshya-verma-448a50365"
     }
   },
   {
@@ -216,7 +216,7 @@ export const teamMembers: TeamMember[] = [
     ],
     achievements: ["Technical Coordinator", "Recognized for excellent student support in workshops"],
     social: {
-      linkedin: "https://linkedin.com/in/sakshi-kashyap"
+      linkedin: "https://www.linkedin.com/in/sakshi-kashyap-36a11238b"
     }
   },
   {
@@ -234,7 +234,7 @@ export const teamMembers: TeamMember[] = [
     ],
     achievements: ["Technical Coordinator", "Top ranker in local coding sprints"],
     social: {
-      linkedin: "https://linkedin.com/in/chitransh-singh"
+      linkedin: "https://www.linkedin.com/in/chitransh-singh-rathour-279b94352"
     }
   },
   {
@@ -252,7 +252,7 @@ export const teamMembers: TeamMember[] = [
     ],
     achievements: ["Content Coordinator", "Curated successful aptitude practice sheets"],
     social: {
-      linkedin: "https://linkedin.com/in/praval-srivastav"
+      linkedin: "https://www.linkedin.com/in/praval-srivastav-68017a381"
     }
   },
   {
@@ -270,7 +270,7 @@ export const teamMembers: TeamMember[] = [
     ],
     achievements: ["Event & PR Coordinator", "Recognized for seamless event coordination"],
     social: {
-      linkedin: "https://linkedin.com/in/samarth-singh"
+      linkedin: "https://www.linkedin.com/in/samarth-singh-057926367"
     }
   },
   {
@@ -288,7 +288,7 @@ export const teamMembers: TeamMember[] = [
     ],
     achievements: ["Event & PR Coordinator", "Successfully onboarded 300+ freshers to Nexus"],
     social: {
-      linkedin: "https://linkedin.com/in/divyanshi-singh"
+      linkedin: "https://www.linkedin.com/in/divyanshi-singh-4ba9123b7"
     }
   },
   {
@@ -306,7 +306,7 @@ export const teamMembers: TeamMember[] = [
     ],
     achievements: ["Event & PR Coordinator", "Organized 4 successful coding rounds"],
     social: {
-      linkedin: "https://linkedin.com/in/aditya-nath-patel"
+      linkedin: "https://www.linkedin.com/in/adityanathpatel"
     }
   },
   {
@@ -324,7 +324,7 @@ export const teamMembers: TeamMember[] = [
     ],
     achievements: ["Event & PR Coordinator", "Curated visual content for placement events"],
     social: {
-      linkedin: "https://linkedin.com/in/saumy-chaurasia"
+      linkedin: "https://www.linkedin.com/in/saumy-chaurasia"
     }
   }
 ];

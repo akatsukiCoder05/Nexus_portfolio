@@ -28,14 +28,14 @@ export default async function MemberProfile({ params }: Props) {
   const skillColors = ["#8B5CF6", "#3B82F6", "#06B6D4", "#EC4899", "#F59E0B"];
 
   return (
-    <div className="min-h-screen bg-[#030014] text-white">
+    <div className="min-h-screen bg-[#0d0d0d] text-white">
       {/* Hero Banner */}
-      <div className="relative h-64 flex items-end">
-        {/* Absolute Background Wrapper to contain the grid and radial gradients inside overflow-hidden */}
-        <div 
+      <div className="relative flex items-end" style={{ minHeight: "clamp(180px, 32vw, 260px)" }}>
+        {/* Background */}
+        <div
           className="absolute inset-0 overflow-hidden"
           style={{
-            background: "linear-gradient(135deg, rgba(139,92,246,0.3) 0%, rgba(59,130,246,0.2) 50%, #030014 100%)",
+            background: "linear-gradient(135deg, rgba(139,92,246,0.3) 0%, rgba(59,130,246,0.2) 50%, #0d0d0d 100%)",
           }}
         >
           <div className="absolute inset-0 animated-grid opacity-20" />
@@ -47,34 +47,45 @@ export default async function MemberProfile({ params }: Props) {
           />
         </div>
 
-        <div className="section-container relative z-10 pb-8 flex items-end gap-6 h-full">
-          {/* Avatar */}
-          <div
-            className="w-28 h-28 rounded-2xl overflow-hidden flex items-center justify-center text-4xl font-bold border-4 flex-shrink-0"
-            style={{
-              background: "linear-gradient(135deg, rgba(139,92,246,0.4), rgba(59,130,246,0.4))",
-              borderColor: "rgba(139,92,246,0.5)",
-              boxShadow: "0 0 40px rgba(139,92,246,0.4)",
-            }}
-          >
-            {member.photo ? (
-              <img
-                src={member.photo}
-                alt={member.name}
-                className="w-full h-full object-cover"
-              />
-            ) : (
-              <span>
-                {member.name.split(" ").map((n) => n[0]).join("")}
-              </span>
-            )}
-          </div>
-          <div className="pb-2">
-            <div className="text-xs font-bold tracking-widest uppercase mb-1" style={{ color: "#A78BFA" }}>
-              {member.branch} · {member.year}
+        <div className="section-container relative z-10 w-full" style={{ paddingBottom: "clamp(20px, 4vw, 32px)", paddingTop: "clamp(20px, 4vw, 32px)" }}>
+          <div className="flex flex-wrap items-end gap-4">
+            {/* Avatar */}
+            <div
+              className="rounded-2xl overflow-hidden flex items-center justify-center font-bold border-4 flex-shrink-0"
+              style={{
+                width: "clamp(72px, 14vw, 112px)",
+                height: "clamp(72px, 14vw, 112px)",
+                fontSize: "clamp(22px, 4vw, 36px)",
+                background: "linear-gradient(135deg, rgba(139,92,246,0.4), rgba(59,130,246,0.4))",
+                borderColor: "rgba(139,92,246,0.5)",
+                boxShadow: "0 0 40px rgba(139,92,246,0.4)",
+              }}
+            >
+              {member.photo ? (
+                <img
+                  src={member.photo}
+                  alt={member.name}
+                  className="w-full h-full object-cover"
+                />
+              ) : (
+                <span>
+                  {member.name.split(" ").map((n) => n[0]).join("")}
+                </span>
+              )}
             </div>
-            <h1 className="text-3xl font-bold text-white">{member.name}</h1>
-            <p style={{ color: "#A78BFA" }}>{member.role}</p>
+            {/* Name + role */}
+            <div style={{ paddingBottom: "2px", flex: "1 1 180px", minWidth: 0 }}>
+              <div className="text-xs font-bold tracking-widest uppercase mb-1" style={{ color: "#A78BFA" }}>
+                {member.branch} · {member.year}
+              </div>
+              <h1
+                className="font-bold text-white"
+                style={{ fontSize: "clamp(20px, 5vw, 30px)", lineHeight: 1.15 }}
+              >
+                {member.name}
+              </h1>
+              <p style={{ color: "#A78BFA", fontSize: "clamp(13px, 2.5vw, 16px)" }}>{member.role}</p>
+            </div>
           </div>
         </div>
       </div>
@@ -89,7 +100,13 @@ export default async function MemberProfile({ params }: Props) {
           Back to Team
         </Link>
 
-        <div className="grid lg:grid-cols-3 gap-8">
+        <style>{`
+            .member-profile-grid { display: grid; gap: 2rem; grid-template-columns: 1fr; }
+            @media (min-width: 1024px) {
+              .member-profile-grid { grid-template-columns: 1fr 2fr; }
+            }
+          `}</style>
+        <div className="member-profile-grid">
           {/* Left sidebar */}
           <div className="flex flex-col gap-6">
             {/* Bio */}

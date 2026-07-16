@@ -5,7 +5,6 @@ import ScrollProgress from "@/components/ui/ScrollProgress";
 import BackToTop from "@/components/ui/BackToTop";
 
 import Hero from "@/components/sections/Hero";
-import Stats from "@/components/sections/Stats";
 import About from "@/components/sections/About";
 import Timeline from "@/components/sections/Timeline";
 import WhatWeDo from "@/components/sections/WhatWeDo";
@@ -34,7 +33,6 @@ export default function Home() {
       {/* Main Content */}
       <main>
         <Hero />
-        <Stats />
         <About />
         <Timeline />
         <WhatWeDo />

@@ -5,7 +5,7 @@ import { Calendar, MapPin, Clock, ExternalLink } from "lucide-react";
 import { events } from "@/data/events";
 
 function CountdownTimer() {
-  const targetDate = new Date("2026-08-15T00:00:00").getTime();
+  const targetDate = 0;
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
 
   useEffect(() => {

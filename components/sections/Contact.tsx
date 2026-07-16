@@ -83,7 +83,7 @@ export default function Contact() {
             <div className="flex flex-col gap-6 mb-12">
               {[
                 { icon: Mail, label: "Email", value: "nexus@college.edu" },
-                { icon: MapPin, label: "Location", value: "College Campus" },
+                { icon: MapPin, label: "Location", value: "SRMCEM, Lucknow" },
                 { icon: Phone, label: "WhatsApp", value: "+91 XXXXXXXXXX" },
               ].map(({ icon: Icon, label, value }) => (
                 <div key={label} className="flex items-center gap-4">

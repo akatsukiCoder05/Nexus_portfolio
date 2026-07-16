@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import { X, ZoomIn } from "lucide-react";
+import { motion, Variants } from "framer-motion";
 
 const galleryItems = [
   { id: 1, title: "Registration Desk", category: "Community", image: "/images/gallery/moment1.jpg", height: "h-72" },
@@ -13,11 +14,56 @@ const galleryItems = [
   { id: 7, title: "Interactive Lab", category: "Workshop", image: "/images/gallery/moment7.jpg", height: "h-64" },
 ];
 
-function GalleryCard({ item, onClick }: { item: typeof galleryItems[0]; onClick: () => void }) {
+const spreadOffsets = [
+  { x: -120, y: -70, rotate: -15 },
+  { x: -40,  y: -140, rotate: 12 },
+  { x: 140,  y: -90, rotate: -8 },
+  { x: -160, y: 50,  rotate: 20 },
+  { x: 0,    y: 150, rotate: -12 },
+  { x: 150,  y: 70,  rotate: 15 },
+  { x: 90,   y: 140, rotate: -10 },
+];
+
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.12,
+    }
+  }
+};
+
+const getItemVariants = (index: number) => {
+  const spread = spreadOffsets[index % spreadOffsets.length];
+  return {
+    hidden: {
+      x: spread.x,
+      y: spread.y,
+      rotate: spread.rotate,
+      opacity: 0,
+      scale: 0.8,
+    },
+    visible: {
+      x: 0,
+      y: 0,
+      rotate: 0,
+      opacity: 1,
+      scale: 1,
+      transition: {
+        type: "spring",
+        stiffness: 55,
+        damping: 14,
+      }
+    }
+  };
+};
+
+function GalleryCard({ item, variants, onClick }: { item: typeof galleryItems[0]; variants: Variants; onClick: () => void }) {
   const [hovered, setHovered] = useState(false);
 
   return (
-    <div
+    <motion.div
+      variants={variants}
       className={`masonry-item rounded-xl overflow-hidden relative ${item.height} cursor-pointer`}
       style={{
         border: "1px solid rgba(255,255,255,0.06)",
@@ -67,20 +113,12 @@ function GalleryCard({ item, onClick }: { item: typeof galleryItems[0]; onClick:
       >
         {item.category}
       </div>
-    </div>
+    </motion.div>
   );
 }
 
 export default function Gallery() {
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
   const [lightboxItem, setLightboxItem] = useState<typeof galleryItems[0] | null>(null);
-
-  useEffect(() => {
-    const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) setVisible(true); }, { threshold: 0.1 });
-    if (sectionRef.current) obs.observe(sectionRef.current);
-    return () => obs.disconnect();
-  }, []);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") setLightboxItem(null); };
@@ -104,15 +142,22 @@ export default function Gallery() {
           <span style={{ color: "#00e5cc" }}>Moments</span>
         </h2>
 
-        <div
-          ref={sectionRef}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-80px" }}
           className="masonry-grid"
-          style={{ opacity: visible ? 1 : 0, transition: "opacity 0.8s ease" }}
         >
-          {galleryItems.map((item) => (
-            <GalleryCard key={item.id} item={item} onClick={() => setLightboxItem(item)} />
+          {galleryItems.map((item, index) => (
+            <GalleryCard 
+              key={item.id} 
+              item={item} 
+              variants={getItemVariants(index)} 
+              onClick={() => setLightboxItem(item)} 
+            />
           ))}
-        </div>
+        </motion.div>
       </div>
 
       {/* Lightbox */}

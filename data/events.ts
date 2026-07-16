@@ -21,7 +21,7 @@ export const events: Event[] = [
     poster: "/images/events/hacknexus.jpg",
     registrationLink: "https://vexta.collegecrm.in",
     isUpcoming: true,
-    venue: "Main Auditorium",
+    venue: "College Campus, SRMCEM, Lucknow",
     prize: "₹50,000",
   },
   {

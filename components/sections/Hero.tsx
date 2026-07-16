@@ -79,8 +79,10 @@ export default function Hero() {
       if (charIdx > 0) {
         timer = setTimeout(() => setCharIdx((c) => c - 1), 35);
       } else {
-        setDeleting(false);
-        setWordIdx((i) => (i + 1) % rotatingWords.length);
+        timer = setTimeout(() => {
+          setDeleting(false);
+          setWordIdx((i) => (i + 1) % rotatingWords.length);
+        }, 0);
       }
     }
     return () => clearTimeout(timer);
@@ -112,96 +114,184 @@ export default function Hero() {
       {/* Main content — takes full height */}
       <div
         className="section-container flex-1 flex flex-col justify-center relative"
-        style={{ zIndex: 2, paddingTop: "120px", paddingBottom: "80px" }}
+        style={{ zIndex: 2, paddingTop: "120px", paddingBottom: "60px" }}
       >
-        {/* Community label */}
-        <div className="section-tag mb-6">
-          Nexus Community · Est. 2022
-        </div>
+        <div className="grid lg:grid-cols-12 gap-12 items-center w-full">
+          {/* Left Column (Content) */}
+          <div className="lg:col-span-7 flex flex-col">
+            {/* Community label */}
+            <div className="section-tag mb-6 align-self-start">
+              Nexus Community · Est. 2022
+            </div>
 
-        {/* Massive headline */}
-        <h1
-          className="font-black text-white leading-[0.92] tracking-tight mb-10"
-          style={{
-            fontFamily: "'Space Grotesk', sans-serif",
-            fontSize: "clamp(56px, 10vw, 140px)",
-            letterSpacing: "-0.03em",
-          }}
-        >
-          {rotatingWords[wordIdx].slice(0, charIdx)}
-          <span
-            className="inline-block w-[4px] align-middle ml-2"
-            style={{
-              height: "0.85em",
-              background: "#00e5cc",
-              animation: "blink 1s step-end infinite",
-              borderRadius: "2px",
-            }}
-          />
-        </h1>
-
-        {/* Description + CTAs — side by side on desktop */}
-        <div className="flex flex-col lg:flex-row lg:items-end gap-8 lg:gap-16 max-w-5xl">
-          <p
-            className="text-base leading-relaxed max-w-md"
-            style={{ color: "#888888", fontSize: "15px", flexShrink: 0 }}
-          >
-            We are a student-driven community helping college students master
-            coding, aptitude, hackathons, and real-world skills — so you can
-            crack your dream placement.
-          </p>
-
-          <div className="flex flex-wrap items-center gap-4">
-            <a
-              href="https://vexta.collegecrm.in"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary"
-              style={{ fontSize: "14px", padding: "12px 28px" }}
-            >
-              Join Community
-              <ArrowRight className="w-4 h-4" />
-            </a>
-            <a
-              href="#events"
-              className="btn-secondary"
-              style={{ fontSize: "14px", padding: "11px 28px" }}
-              onClick={(e) => {
-                e.preventDefault();
-                document.getElementById("events")?.scrollIntoView({ behavior: "smooth" });
+            {/* Massive headline */}
+            <h1
+              className="font-black text-white leading-[0.92] tracking-tight mb-8"
+              style={{
+                fontFamily: "'Space Grotesk', sans-serif",
+                fontSize: "clamp(46px, 8vw, 110px)",
+                letterSpacing: "-0.03em",
               }}
             >
-              Explore Events
-            </a>
-          </div>
-        </div>
+              {rotatingWords[wordIdx].slice(0, charIdx)}
+              <span
+                className="inline-block w-[4px] align-middle ml-2"
+                style={{
+                  height: "0.85em",
+                  background: "#00e5cc",
+                  animation: "blink 1s step-end infinite",
+                  borderRadius: "2px",
+                }}
+              />
+            </h1>
 
-        {/* Stats row */}
-        <div
-          className="flex items-center gap-10 mt-16 pt-10"
-          style={{ borderTop: "1px solid rgba(255,255,255,0.08)" }}
-        >
-          {[
-            { value: "1500+", label: "Students" },
-            { value: "100+", label: "Events" },
-            { value: "30+", label: "Hackathons" },
-            { value: "4+", label: "Years" },
-          ].map((s) => (
-            <div key={s.label}>
-              <div
-                className="font-black text-white leading-none"
-                style={{ fontSize: "clamp(22px, 3vw, 36px)", fontFamily: "'Space Grotesk', sans-serif", letterSpacing: "-0.02em" }}
+            {/* Description */}
+            <p
+              className="text-base leading-relaxed mb-8 max-w-xl"
+              style={{ color: "#888888", fontSize: "15px" }}
+            >
+              We are a student-driven community helping college students master
+              coding, aptitude, hackathons, and real-world skills — so you can
+              crack your dream placement.
+            </p>
+
+            {/* CTAs */}
+            <div className="flex flex-wrap items-center gap-4">
+              <a
+                href="https://vexta.collegecrm.in"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary"
+                style={{ fontSize: "14px", padding: "12px 28px" }}
               >
-                {s.value}
-              </div>
-              <div
-                className="text-xs uppercase tracking-widest mt-1.5"
-                style={{ color: "#808080", letterSpacing: "0.15em" }}
+                Join Community
+                <ArrowRight className="w-4 h-4" />
+              </a>
+              <a
+                href="#events"
+                className="btn-secondary"
+                style={{ fontSize: "14px", padding: "11px 28px" }}
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById("events")?.scrollIntoView({ behavior: "smooth" });
+                }}
               >
-                {s.label}
-              </div>
+                Explore Events
+              </a>
             </div>
-          ))}
+          </div>
+
+          {/* Right Column (Community Logo with move animation behind it) */}
+          <div className="lg:col-span-5 flex justify-center items-center relative py-12 lg:py-0">
+            {/* Moving background glow/shape */}
+            <div
+              className="absolute rounded-full pointer-events-none"
+              style={{
+                width: "min(320px, 70vw)",
+                height: "min(320px, 70vw)",
+                background: "radial-gradient(circle, rgba(0, 229, 204, 0.15) 0%, rgba(139, 92, 246, 0.08) 50%, transparent 70%)",
+                filter: "blur(35px)",
+                animation: "move-behind 8s ease-in-out infinite",
+                zIndex: 1,
+              }}
+            />
+
+            {/* Slow floating logo container */}
+            <div
+              className="relative flex items-center justify-center transition-all duration-300"
+              style={{
+                width: "clamp(200px, 22vw, 270px)",
+                height: "clamp(200px, 22vw, 270px)",
+                borderRadius: "50%",
+                background: "#ffffff",
+                padding: "20px",
+                boxShadow: "0 20px 50px rgba(0,0,0,0.5), 0 0 80px rgba(0,229,204,0.15)",
+                border: "2px solid rgba(255,255,255,0.05)",
+                zIndex: 2,
+                animation: "float-slow 6s ease-in-out infinite",
+              }}
+            >
+              {/* Glowing / Sparkly Ring */}
+              <div
+                className="absolute rounded-full pointer-events-none"
+                style={{
+                  top: "-6px",
+                  left: "-6px",
+                  right: "-6px",
+                  bottom: "-6px",
+                  background: "linear-gradient(45deg, #00e5cc, #8b5cf6, #00e5cc, #8b5cf6)",
+                  backgroundSize: "300% 300%",
+                  filter: "blur(8px)",
+                  opacity: 0.85,
+                  zIndex: -1,
+                  animation: "sparkling-glow 3s ease infinite, rotate-glow 10s linear infinite"
+                }}
+              />
+
+              {/* Sparkle 1 */}
+              <div
+                className="absolute text-[#00e5cc] pointer-events-none select-none"
+                style={{
+                  top: "5%",
+                  right: "-5%",
+                  fontSize: "24px",
+                  filter: "drop-shadow(0 0 5px #00e5cc)",
+                  animation: "sparkle-star 4s ease-in-out infinite",
+                  animationDelay: "0s",
+                }}
+              >
+                ✦
+              </div>
+              {/* Sparkle 2 */}
+              <div
+                className="absolute text-[#8b5cf6] pointer-events-none select-none"
+                style={{
+                  bottom: "5%",
+                  left: "-10%",
+                  fontSize: "20px",
+                  filter: "drop-shadow(0 0 5px #8b5cf6)",
+                  animation: "sparkle-star 5s ease-in-out infinite",
+                  animationDelay: "1.5s",
+                }}
+              >
+                ✦
+              </div>
+              {/* Sparkle 3 */}
+              <div
+                className="absolute text-[#00e5cc] pointer-events-none select-none"
+                style={{
+                  top: "65%",
+                  right: "-10%",
+                  fontSize: "18px",
+                  filter: "drop-shadow(0 0 5px #00e5cc)",
+                  animation: "sparkle-star 6s ease-in-out infinite",
+                  animationDelay: "3s",
+                }}
+              >
+                ✦
+              </div>
+              {/* Sparkle 4 */}
+              <div
+                className="absolute text-white pointer-events-none select-none"
+                style={{
+                  top: "-10%",
+                  left: "20%",
+                  fontSize: "22px",
+                  filter: "drop-shadow(0 0 8px rgba(255,255,255,0.8))",
+                  animation: "sparkle-star 3s ease-in-out infinite",
+                  animationDelay: "0.8s",
+                }}
+              >
+                ✦
+              </div>
+
+              <img
+                src="/images/logo.png"
+                alt="Nexus Community Logo"
+                className="w-[85%] h-[85%] object-contain"
+              />
+            </div>
+          </div>
         </div>
       </div>
 
@@ -217,7 +307,7 @@ export default function Hero() {
           ©2025
         </span>
         <span style={{ color: "#808080", fontSize: "11px", fontWeight: 500, letterSpacing: "0.15em", textTransform: "uppercase" }}>
-          /Building Since 2022
+          
         </span>
       </div>
 
@@ -225,6 +315,28 @@ export default function Hero() {
         @keyframes blink {
           0%, 100% { opacity: 1; }
           50% { opacity: 0; }
+        }
+        @keyframes move-behind {
+          0%, 100% { transform: translate(0px, 0px) scale(1); }
+          33% { transform: translate(25px, -15px) scale(1.08); }
+          66% { transform: translate(-20px, 20px) scale(0.95); }
+        }
+        @keyframes float-slow {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-12px); }
+        }
+        @keyframes sparkling-glow {
+          0%, 100% { opacity: 0.7; filter: blur(6px); }
+          50% { opacity: 1; filter: blur(12px); }
+        }
+        @keyframes rotate-glow {
+          0% { background-position: 0% 50%; transform: rotate(0deg); }
+          50% { background-position: 100% 50%; }
+          100% { background-position: 0% 50%; transform: rotate(360deg); }
+        }
+        @keyframes sparkle-star {
+          0%, 100% { transform: scale(0.3) rotate(0deg); opacity: 0; }
+          50% { transform: scale(1.2) rotate(180deg); opacity: 1; }
         }
       `}</style>
     </section>
