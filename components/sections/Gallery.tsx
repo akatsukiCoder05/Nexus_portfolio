@@ -33,7 +33,7 @@ const containerVariants = {
   }
 };
 
-const getItemVariants = (index: number) => {
+const getItemVariants = (index: number): Variants => {
   const spread = spreadOffsets[index % spreadOffsets.length];
   return {
     hidden: {
@@ -50,7 +50,7 @@ const getItemVariants = (index: number) => {
       opacity: 1,
       scale: 1,
       transition: {
-        type: "spring",
+        type: "spring" as const,
         stiffness: 55,
         damping: 14,
       }
